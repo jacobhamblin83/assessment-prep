@@ -57,9 +57,11 @@ anakinSkywalker.children.push('Jar Jar');
 
 //13. Loop through the object and remove any property that starts with former
 
- 
-
-console.log(anakinSkywalker)
+for (var prop in anakinSkywalker) {
+  if (prop.slice(0,7) === 'former_'){
+    delete anakinSkywalker[prop];
+  }
+}
 
 
 
@@ -87,13 +89,10 @@ function numChecker(par){
 //16. Write a function called rightNow that returns a new date object
 
 function rightNow(){
-  var date = {
-    month: 'febuary',
-    year: '2017',
-    day: 2
+  var d = new Date;
+  return d;
   }
-  return date;
-}
+  
 
 
 
@@ -113,7 +112,6 @@ function whoAmI(obj){
 //    returns the result of the callback function invoked with the num as a parameter
 
 function returnMe(num, cb){
-  return function(){
-    return num;
+  return cb(num);
   }
-}
+
